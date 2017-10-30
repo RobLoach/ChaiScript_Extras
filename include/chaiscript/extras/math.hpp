@@ -438,20 +438,6 @@ namespace chaiscript {
       }
 
       template<typename Ret, typename Param>
-      ModulePtr isinf(ModulePtr m = std::make_shared<Module>())
-      {
-    	  m->add(chaiscript::fun(static_cast<Ret (*)(Param)>(&std::isinf)), "isinf");
-    	  return m;
-      }
-
-      template<typename Ret, typename Param>
-      ModulePtr isnan(ModulePtr m = std::make_shared<Module>())
-      {
-    	  m->add(chaiscript::fun(static_cast<Ret (*)(Param)>(&std::isnan)), "isnan");
-    	  return m;
-      }
-
-      template<typename Ret, typename Param>
       ModulePtr isnormal(ModulePtr m = std::make_shared<Module>())
       {
     	  m->add(chaiscript::fun(static_cast<Ret (*)(Param)>(&std::isnormal)), "isnormal");
@@ -760,18 +746,6 @@ namespace chaiscript {
         isfinite<bool, float>(m);
         isfinite<bool, double>(m);
         isfinite<bool, long double>(m);
-
-        if (std::isinf) {
-          isinf<bool, float>(m);
-          isinf<bool, double>(m);
-          isinf<bool, long double>(m);
-        }
-
-        if (std::isnan) {
-          isnan<bool, float>(m);
-          isnan<bool, double>(m);
-          isnan<bool, long double>(m);
-        }
 
         isnormal<bool, float>(m);
         isnormal<bool, double>(m);

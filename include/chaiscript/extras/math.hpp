@@ -761,13 +761,17 @@ namespace chaiscript {
         isfinite<bool, double>(m);
         isfinite<bool, long double>(m);
 
-        isinf<bool, float>(m);
-        isinf<bool, double>(m);
-        isinf<bool, long double>(m);
+        if (std::isinf) {
+          isinf<bool, float>(m);
+          isinf<bool, double>(m);
+          isinf<bool, long double>(m);
+        }
 
-        isnan<bool, float>(m);
-        isnan<bool, double>(m);
-        isnan<bool, long double>(m);
+        if (std::isnan) {
+          isnan<bool, float>(m);
+          isnan<bool, double>(m);
+          isnan<bool, long double>(m);
+        }
 
         isnormal<bool, float>(m);
         isnormal<bool, double>(m);
